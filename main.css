@@ -1,0 +1,29 @@
+body {
+  text-align: center;
+}
+
+.status-container {
+  display: inline-block;
+  background-color: #e6e9f2;
+  width: 700px;
+  height: 300px;
+}
+
+.status {
+  display: inline-block;
+  background-color: #ffffff;
+  margin-top: 40px;
+  width: 620px;
+  height: 220px;
+}
+
+.user-input {
+  display: inline-block;
+  width: 560px;
+  height: 120px;
+  float: right;
+  font-family: Helvetica;
+  font-size: 18px;
+  border: none;
+  outline: none;
+}
