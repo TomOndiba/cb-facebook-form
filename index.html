@@ -9,8 +9,50 @@
   <body>
     <div class="status-container">
       <div class="status">
+        <div class="status-menu-left">
+          <i class="fa fa-pencil fa-2x"></i>
+          <i class="fa fa-microphone fa-2x"></i>
+          <i class="fa fa-camera fa-2x"></i>
+        </div>
         <input class="user-input" placeholder="What's on your mind right now?" />
+        <div class="status-menu-bottom">
+          <div class="status-add">
+            <i class="fa fa-map-marker fa-2x"></i>
+            <i class="fa fa-smile-o fa-2x"></i>
+            <i class="fa fa-user fa-2x"></i>
+            <i class="fa fa-camera fa-2x"></i>
+          </div>
+          <div class="status-dropdown">
+            <button class="status-dropdown-btn" onclick="showDropdown()"><i class="fa fa-globe fa-fw"></i>&nbsp; Public &nbsp;<i class="fa fa-caret-down"></i></button>
+            <div id="drop" class="dropdown-content">
+              <a href="#"><i class="fa fa-globe fa-fw"></i>&nbsp; Public</a>
+              <a href="#"><i class="fa fa-users fa-fw"></i>&nbsp; Friends</a>
+              <a href="#"><i class="fa fa-lock fa-fw"></i>&nbsp; Only Me</a>
+            </div>
+          </div>
+          <button class="status-post">Post</button>
+        </div>
       </div>
     </div>
+
+    <script>
+      function showDropdown(){
+        document.getElementById("drop").classList.toggle("show");
+      }
+
+      window.onclick = function(event) {
+        if (!event.target.matches('.status-dropdown-btn')) {
+
+          var dropdowns = document.getElementsByClassName("dropdown-content");
+          var i;
+          for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+              openDropdown.classList.remove('show');
+            }
+          }
+        }
+      }
+    </script>
   </body>
 </html>
