@@ -48,7 +48,7 @@ i:hover {
 .status-menu-bottom {
   float: right;
   width: 560px;
-  height: 50px;
+  height: 48px;
   background-color: #e3e3e3;
 }
 
@@ -86,15 +86,18 @@ i:hover {
   position: absolute;
 }
 
-.dropdown-content a:hover, .dropdown-content a:hover i {
+.dropdown-content li:hover, .dropdown-content li:hover i {
   background-color: #4e69a2;
   color: #fff;
+  cursor: pointer;
 }
 
 .show {
   display: block;
   position: absolute;
-  left: -45px;
+  padding: 0;
+  left: -55px;
+  top: 8px;
   width: 150px;
   background-color: #fff;
   border: 1px solid #141823;
@@ -102,9 +105,16 @@ i:hover {
   z-index: 1;
 }
 
-.show a {
+.active-check {
+  display: inline-block;
+  float: left;
+}
+
+.show li {
   display: block;
+  position: relative;
   padding: 10px;
+  text-decoration: none;
 }
 
 .description {

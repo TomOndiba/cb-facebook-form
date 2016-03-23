@@ -24,17 +24,17 @@
           </div>
           <div class="status-dropdown">
             <button class="status-dropdown-btn" onclick="showDropdown()"><i class="fa fa-globe fa-fw"></i>&nbsp; Public &nbsp;<i class="fa fa-caret-down"></i></button>
-            <div id="drop" class="dropdown-content">
-              <a href="#">
-                <i class="fa fa-globe fa-fw"></i>&nbsp; Public<br><span class="description">Anyone on or off Facebook</span>
-              </a>
-              <a href="#">
+            <ul id="drop" class="dropdown-content" onclick="selectAudience()">
+              <li href="#">
+                <i class="fa fa-check active-check"></i><i class="fa fa-globe fa-fw"></i>&nbsp; Public<br><span class="description">Anyone on or off Facebook</span>
+              </li>
+              <li href="#">
                 <i class="fa fa-users fa-fw"></i>&nbsp; Friends<br><span class="description">You friends on Facebook</span>
-              </a>
-              <a href="#">
+              </li>
+              <li href="#">
                 <i class="fa fa-lock fa-fw"></i>&nbsp; Only Me<br><span class="description">Only Me</span>
-              </a>
-            </div>
+              </li>
+            </ul>
           </div>
           <button class="status-post">Post</button>
         </div>
@@ -44,6 +44,10 @@
     <script>
       function showDropdown(){
         document.getElementById("drop").classList.toggle("show");
+      }
+
+      function selectAudience(){
+        console.log(event.target);
       }
 
       window.onclick = function(event) {
