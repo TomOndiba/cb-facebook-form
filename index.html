@@ -10,9 +10,11 @@
     <div class="status-container">
       <div class="status">
         <div class="status-menu-left">
-          <i class="fa fa-pencil fa-2x"></i>
-          <i class="fa fa-microphone fa-2x"></i>
-          <i class="fa fa-camera fa-2x"></i>
+          <i class="fa fa-pencil fa-2x pencil"></i>
+          <i class="fa fa-microphone fa-2x microphone"></i>
+          <i class="fa fa-camera fa-2x">
+            <input type="file" id="input" multiple onchange="handleFiles(this.files)">
+          </i>
         </div>
         <input class="user-input" placeholder="What's on your mind right now?" />
         <div class="status-menu-bottom">
@@ -80,6 +82,14 @@
             current.removeChild(current.children[0]);
           }
         }
+      }
+
+      var inputElement = document.getElementById("input");
+
+      inputElement.addEventListener("change", handleFiles, false);
+
+      function handleFiles() {
+        var fileList = this.files;
       }
 
       window.onclick = function(event) {
