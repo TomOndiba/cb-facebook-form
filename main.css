@@ -42,7 +42,7 @@ i:hover {
 
 .status-menu-left i {
   display: block;
-  padding: 6px;
+  margin: 12px;
 }
 
 .status-menu-bottom {
@@ -54,6 +54,11 @@ i:hover {
 
 .status-add {
   display: inline-block;
+  margin-right: 150px;
+}
+
+.status-add i {
+  margin: 10px;
 }
 
 .status-dropdown {
