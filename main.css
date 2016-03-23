@@ -73,7 +73,7 @@ i:hover {
 .status-dropdown-btn {
   background-color: #e3e3e3;
   border: none;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .status-dropdown-btn:focus, .status-dropdown-btn:focus i {

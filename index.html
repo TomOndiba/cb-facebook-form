@@ -23,16 +23,16 @@
             <i class="fa fa-camera fa-2x"></i>
           </div>
           <div class="status-dropdown">
-            <button class="status-dropdown-btn" onclick="showDropdown()"><i class="fa fa-globe fa-fw"></i>&nbsp; Public &nbsp;<i class="fa fa-caret-down"></i></button>
+            <button id="status-dropdown-selected" class="status-dropdown-btn" onclick="showDropdown()"><i class="fa fa-globe fa-fw"></i>&nbsp; Public &nbsp;<i class="fa fa-caret-down"></i></button>
             <ul id="drop" class="dropdown-content" onclick="selectAudience()">
-              <li href="#">
-                <i class="fa fa-check active-check"></i><i class="fa fa-globe fa-fw"></i>&nbsp; Public<br><span class="description">Anyone on or off Facebook</span>
+              <li id="public" class="public-li" href="#">
+                <i id="public" class="fa fa-check active-check"></i><i class="fa fa-globe fa-fw"></i>&nbsp; Public<br><span class="description">Anyone on or off Facebook</span>
               </li>
-              <li href="#">
-                <i class="fa fa-users fa-fw"></i>&nbsp; Friends<br><span class="description">You friends on Facebook</span>
+              <li id="friends" class="friends-li" href="#">
+                <i id="friends" class="fa fa-users fa-fw"></i>&nbsp; Friends<br><span class="description">Your friends on Facebook</span>
               </li>
-              <li href="#">
-                <i class="fa fa-lock fa-fw"></i>&nbsp; Only Me<br><span class="description">Only Me</span>
+              <li id="only-me" class="only-me-li" href="#">
+                <i id="only-me" class="fa fa-lock fa-fw"></i>&nbsp; Only Me<br><span class="description">Only Me</span>
               </li>
             </ul>
           </div>
@@ -47,7 +47,39 @@
       }
 
       function selectAudience(){
-        console.log(event.target);
+        if(event.target.id === "public"){
+          document.getElementById("status-dropdown-selected").innerHTML = "<i class=\"fa fa-globe fa-fw\"></i>&nbsp; Public &nbsp;<i class=\"fa fa-caret-down\"></i>"
+
+          removeCheck();
+
+          document.getElementsByClassName("public-li")[0].innerHTML = "<i id=\"public\" class=\"fa fa-check active-check\"></i><i class=\"fa fa-globe fa-fw\"></i>&nbsp; Public<br><span class=\"description\">Anyone on or off Facebook</span>"
+        }
+        if(event.target.id === "friends"){
+          document.getElementById("status-dropdown-selected").innerHTML = "<i class=\"fa fa-users fa-fw\"></i>&nbsp; Friends &nbsp;<i class=\"fa fa-caret-down\"></i>"
+
+          removeCheck();
+
+          document.getElementsByClassName("friends-li")[0].innerHTML = "<i id=\"public\" class=\"fa fa-check active-check\"></i><i class=\"fa fa-users fa-fw\"></i>&nbsp; Friends<br><span class=\"description\">Your friends on Facebook</span>"
+        }
+        if(event.target.id === "only-me"){
+          document.getElementById("status-dropdown-selected").innerHTML = "<i class=\"fa fa-lock fa-fw\"></i>&nbsp; Only Me &nbsp;<i class=\"fa fa-caret-down\"></i>"
+
+          removeCheck();
+
+          document.getElementsByClassName("only-me-li")[0].innerHTML = "<i id=\"public\" class=\"fa fa-check active-check\"></i><i class=\"fa fa-lock fa-fw\"></i>&nbsp; Only Me<br><span class=\"description\">Only Me</span>"
+        }
+      }
+
+      function removeCheck(){
+        var dropdowns = document.getElementsByClassName("dropdown-content")[0].children;
+
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var current = dropdowns[i];
+          if(current.children[0].classList.contains('active-check')){
+            current.removeChild(current.children[0]);
+          }
+        }
       }
 
       window.onclick = function(event) {
@@ -57,7 +89,7 @@
           var i;
           for (i = 0; i < dropdowns.length; i++) {
             var openDropdown = dropdowns[i];
-            if (openDropdown.classList.contains('show')) {
+            if(openDropdown.classList.contains('show')){
               openDropdown.classList.remove('show');
             }
           }
